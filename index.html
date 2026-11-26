@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Baixar o Gerenciador de disparos</title>
+    <style>
+        :root {
+            --azul: #3a4e88;
+            --azul-escuro: #2f417d;
+            --azul-claro: #eff6ff;
+            --fundo: #f1f5f9;
+            --texto: #1e293b;
+            --suave: #64748b;
+            --borda: #cbd5e1;
+            --vermelho: #dc2626;
+            --verde: #2b8a3e;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--fundo);
+            color: var(--texto);
+            font: 14px/1.5 "Inter var", Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+
+        header {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            background: var(--azul);
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            gap: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        header span { font-weight: 400; opacity: 0.75; font-size: 13px; }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+        }
+
+        .cartao {
+            width: 100%;
+            max-width: 440px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px 28px;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.6px;
+        }
+
+        .legenda { margin: 0 0 22px; color: var(--suave); }
+
+        label { display: block; margin-bottom: 6px; font-weight: 500; }
+
+        input {
+            width: 100%;
+            height: 42px;
+            padding: 0 16px;
+            border: 1px solid var(--borda);
+            border-radius: 20px;
+            font: inherit;
+            color: inherit;
+        }
+
+        input:focus { outline: none; border-color: var(--azul); box-shadow: 0 0 0 3px var(--azul-claro); }
+
+        button {
+            width: 100%;
+            height: 42px;
+            margin-top: 14px;
+            border: 0;
+            border-radius: 9999px;
+            background: var(--azul);
+            color: #fff;
+            font: 500 14px/1 inherit;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        button:hover:not(:disabled) { background: var(--azul-escuro); }
+        button:disabled { opacity: 0.6; cursor: default; }
+
+        .erro { min-height: 20px; margin: 10px 0 0; color: var(--vermelho); font-size: 13px; }
+
+        .barra {
+            height: 6px;
+            margin-top: 14px;
+            border-radius: 3px;
+            background: var(--fundo);
+            overflow: hidden;
+        }
+
+        .barra div { height: 100%; width: 0; background: var(--azul); transition: width 0.2s; }
+
+        .situacao { margin: 8px 0 0; color: var(--suave); font-size: 13px; }
+
+        .passos {
+            margin: 22px 0 0;
+            padding: 16px 18px 16px 34px;
+            border-radius: 10px;
+            background: var(--azul-claro);
+            font-size: 13.5px;
+        }
+
+        .passos li + li { margin-top: 6px; }
+        .rodape { padding: 18px; text-align: center; color: var(--suave); font-size: 12px; }
+        [hidden] { display: none !important; }
+    </style>
+</head>
+<body>
+    <header>Gerenciador de disparos <span>Instalação</span></header>
+
+    <main>
+        <div class="cartao">
+            <h1>Baixar o Gerenciador de disparos</h1>
+            <p class="legenda" id="versao">Disparos, agentes e Ver bloqueios, dentro do ChatFast.</p>
+
+            <form id="formulario" autocomplete="off">
+                <label for="senha">Senha do gerenciador de disparos</label>
+                <input type="password" id="senha" required autocomplete="off" autofocus>
+                <button type="submit" id="baixar">Baixar o instalador</button>
+                <p class="erro" id="erro"></p>
+            </form>
+
+            <div id="andamento" hidden>
+                <div class="barra"><div id="preenchido"></div></div>
+                <p class="situacao" id="situacao"></p>
+            </div>
+
+            <ol class="passos">
+                <li>Abra o arquivo <b>Gerenciador de disparos.zip</b> baixado.</li>
+                <li>Dois cliques em <b>Instalar Gerenciador de disparos</b>. Se o Windows avisar, clique em
+                    <b>Mais informações → Executar assim mesmo</b>.</li>
+                <li>Siga o que a janela do instalador e o navegador pedirem: o resto é automático.</li>
+            </ol>
+        </div>
+    </main>
+
+    <p class="rodape">O arquivo é protegido: sem a senha, ele não abre.</p>
+
+    <script src="download.js"></script>
+</body>
+</html>
